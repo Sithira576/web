@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management UI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        /* Header Styling */
+        header {
+            background-color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+            color: #333;
+        }
+        header a {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* Main Section Styling */
+        .main-section {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #f1f1f1;
+        }
+        .main-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .main-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .main-section input[type="email"] {
+            padding: 10px;
+            width: 300px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .main-section button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* Image in the Main Section  */
+        .main-section img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 40px 0;
+        }
+
+        /* Why Task Management Section */
+        .why-section {
+            padding: 50px 20px;
+            display: flex;
+            justify-content: space-around;
+            background-color: #fff;
+        }
+        .why-section .column {
+            width: 45%;
+        }
+        .why-section h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .why-section p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .why-section img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 50px 20px;
+            background-color: #f8f9fa;
+        }
+        .features-section .feature {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .features-section h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .features-section p {
+            font-size: 16px;
+            color: #666;
+        }
+        .features-section img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin: 20px 0;
+        }
+
+        /* Featured Services Section */
+        .featured-services {
+            padding: 50px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .featured-services h2 {
+            font-size: 30px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .featured-services .service {
+            display: inline-block;
+            width: 30%;
+            margin: 20px;
+            vertical-align: top;
+            text-align: center;
+        }
+        .featured-services .service img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .featured-services .service h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .featured-services .service p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Why do you need task management section (image) */
+        .task-management-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 60px 20px;
+            background-color: #fff;
+        }
+        .task-management-section img {
+            width: 50%;
+            max-width: 500px;
+            height: auto;
+        }
+        .task-management-content {
+            width: 40%;
+            text-align: left;
+        }
+        .task-management-content h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .task-management-content p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .task-management-content a {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+
+
+/* Seamless Team Workflow Section */
+.seamless-section {
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+}
+
+.seamless-section .text-column {
+    width: 45%;
+}
+
+.seamless-section .text-column h3 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.seamless-section .text-column p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.app-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.app-icon {
+    width: 40px;
+    height: 40px;
+}
+
+/*Play Store icon size */
+.playstore-icon {
+    width: 50px; 
+}
+
+/* Image Column with Single Feature Image */
+.seamless-section .image-column {
+    display: flex;
+    justify-content: center;
+}
+
+.seamless-section .image-column .feature-image {
+    width: 100%;
+    max-width: 500px; 
+    height: auto;
+}
+
+
+
+
+
+/* Trust Us Section */
+.trust-us-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.trust-us-section h3 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.trust-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px; 
+    margin-bottom: 40px;
+}
+
+/* Left and Right Images */
+.trust-image img {
+    width: 150px; 
+    height: 150px;
+    border-radius: 50%;
+}
+
+.person1 {
+    align-self: flex-start; 
+}
+
+.person2 {
+    align-self: flex-end; 
+    margin-top: 50px; 
+}
+
+/* Middle Text (100 000) */
+.trust-text h2 {
+    font-size: 60px;
+    color: #5F59F7; 
+    font-weight: bold;
+}
+
+/* Get Better Work Section */
+.better-work-section {
+    text-align: center;
+}
+
+.better-work-section h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.better-work-section p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #6c757d;
+}
+
+/* Try it free button */
+.try-it-free-btn {
+    background-color: #5F59F7;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.try-it-free-btn:hover {
+    background-color: #4e48d1;
+}
+
+
+
+
+
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #343a40;
+            color: white;
+        }
+        footer a {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Taskia</h1>
+        <a href="#">Try Free</a>
+    </header>
+
+    <!-- Main Section -->
+    <section class="main-section">
+        <h2>Task Management and Lists Tool</h2>
+        <p>We believe that designing products and services in close partnership with our clients is the only way to have a real impact on their business.</p>
+        <img src="Images/hero image.jpg" alt="Task Management Banner">
+        <input type="email" placeholder="Name@company.com">
+        <button>Try it Free</button>
+    </section>
+
+    
+
+    <!-- Featured Services Section -->
+    <section class="featured-services">
+        <h2>Featured Service that We Provide</h2>
+        <div class="service">
+            <img src="Images/Image 1.png" alt="Service 1">
+            <h3>Seamless Collaboration</h3>
+            <p>Collaborate with your team in real-time and stay on top of every project.</p>
+        </div>
+        <div class="service">
+            <img src="Images/Image 2.png" alt="Service 2">
+            <h3>Efficient Task Management</h3>
+            <p>Organize, prioritize, and track your tasks with ease to meet deadlines.</p>
+        </div>
+        <div class="service">
+            <img src="Images/Image 3.png" alt="Service 3">
+            <h3>Time Tracking</h3>
+            <p>Monitor how much time is spent on each task and manage productivity.</p>
+        </div>
+    </section>
+
+    <!-- Task Management Section (Why do you need task management?) -->
+    <section class="task-management-section">
+        <img src="Images/Image 8.jpg" alt="Task Management UI">
+        <div class="task-management-content">
+            <h2>Why do you need task management?</h2>
+            <p>Do you waste time organizing sticky notes, searching your email and apps for to-dos, and figuring out what to work on first? Then you need one solution to prioritize your tasks, manage your time, and meet your deadlines.</p>
+            <a href="#">Learn more</a>
+        </div>
+    </section>
+
+
+<!-- Seamless Team Workflow Section -->
+<section class="seamless-section">
+    <div class="text-column">
+        <h3>Seamless Team Workflow & Efficient</h3>
+        <p>Do you waste time organizing sticky notes, searching your email and apps for to-dos, and figuring out what to work on first? Then you need one solution to prioritize your tasks, manage your time, and meet your deadlines.</p>
+        <!-- App Store icons -->
+        <div class="app-icons">
+            <img src="Images/Image 6.jpg" alt="Apple Store" class="app-icon">
+            <img src="Images/Image 9.jpg" alt="Google Play Store" class="app-icon playstore-icon">
+        </div>
+    </div>
+    <div class="image-column">
+        <!-- Single Feature image according to UI design -->
+        <img src="Images/Image 7.jpg" alt="Seamless Feature Image" class="feature-image">
+    </div>
+</section>
+
+
+<!-- Trust Us Section -->
+<section class="trust-us-section">
+    <h3>Trust us and feel free to try our service</h3>
+    
+    <div class="trust-content">
+        <!-- Left Image (Person 1) -->
+        <div class="trust-image person1">
+            <img src="Images/Image 4.jpg" alt="Person 1">
+        </div>
+
+        <!-- Middle Text (100 000) -->
+        <div class="trust-text">
+            <h2>100 000</h2>
+        </div>
+
+        <!-- Right Image (Person 2) -->
+        <div class="trust-image person2">
+            <img src="Images/Image 5.jpg" alt="Person 2">
+        </div>
+    </div>
+
+    <!-- Get Better Work Done Section -->
+    <div class="better-work-section">
+        <h4>Get better work done</h4>
+        <p>See why millions of people across 195 countries use Dash.</p>
+        <button class="try-it-free-btn">Try it free</button> <!-- Button Added -->
+    </div>
+</section>
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Taskia. All Rights Reserved.</p>
+        <a href="#">Contact Us</a>
+        <a href="#">Privacy Policy</a>
+    </footer>
+
+</body>
+</html>
